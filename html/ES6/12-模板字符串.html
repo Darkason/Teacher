@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //1、模板字符串引用变量。
+        let name="lisi";
+        let template = `我是${name}`;//不是单引号，是esc键下面的反引号
+        console.log(template);
+
+        //2、模板字符串调用函数
+        function test(){
+            return "这是一个测试";
+        }
+        let template2 = `模板字符串，调用函数： ${test()}`;
+        document.write(template2);
+
+        //字符串的reprat
+        console.log("你好".repeat(5));
+
+        //startWith,endthWIth
+        let str = 'Hello world!';
+        str.startsWith('Hello') // true
+
+        console.log(str.endsWith("d!"));//true
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        function add(...args){
+            var sum = 0;
+            for(var i = 0;i<args.length;i++){
+                sum = sum+args[i];
+            }
+            return sum;
+        }
+
+        console.log(add(1,2,3,4,5,6,7,8,9,10));
+        console.log(add(22,33,44));
+        //数组的结构
+        let nums=[1,2,3,4,5,6,7,8,9,10];
+        let [n1,...nm]= nums;
+        console.log(n1);
+        console.log(nm);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

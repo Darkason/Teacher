@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        function Person(name,age){
+            this.name=name;
+            this.age=age;
+            this.sayHello=function(){
+                document.write("你好!，我是"+this.name+"，我今年"+this.age+"了");
+            }
+        }
+        //ecma5时候的继承，使用的是函数的语法，实现面向对象的特性。
+        function Student(name,age,studentNo,province){
+            //实现继承
+            Person.call(this,name,age);//第一个参数不能少.
+            this.studentNo=studentNo;
+            this.province=province;
+            this.learn=function(){
+                document.write("好好学习，天天向上!!");
+            }
+        }
+
+        var stu1 = new Student("键哥",22,"A121212121","广东");
+        stu1.learn();
+        stu1.sayHello();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

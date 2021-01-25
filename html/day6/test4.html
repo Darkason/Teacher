@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .class-p2 {
+        color: red;
+        font-size: 30px;
+    }
+
+</style>
+<body>
+<!--<p id="p1" style="color: red">-->
+<p id="p1">
+    我是第一段
+</p>
+<!--<p id="p2" class="class-p2">-->
+<p id="p2">
+    我是第二段
+</p>
+<br><br>
+
+<input type="button" value="修改p1颜色" onclick="changeColor()"><br><br>
+<input type="button" value="改变p2样式" id="changeClass"><br><br>
+<br><br>
+
+<a href="#" onclick="displayDiv()">显示\隐藏</a><br>
+<!--<div id="id-div" style="display: block">-->
+<div id="id-div">
+    我是div
+</div>
+
+</body>
+</html>
+<script>
+    document.getElementById("changeClass").onclick = function (ev) {
+        var p2 = document.getElementById("p2");
+        p2.className = "class-p2";
+    }
+
+    function changeColor() {
+        var p1 = document.getElementById("p1");
+        p1.style.color = "red";
+        // font-size转换成驼峰式fontSize
+        p1.style.fontSize = "30px";
+        p1.style.fontFamily = "宋体";
+
+    }
+
+    function displayDiv() {
+        var div = document.getElementById("id-div");
+
+        var display = div.style.display;
+        if (display == "none") {
+            div.style.display = "block";
+        } else {
+            div.style.display = "none";
+        }
+
+    }
+
+</script>

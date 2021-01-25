@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+        //保存数据到table表中
+        function save() {
+            var name = $("#name").val();
+            var age = $("#age").val();
+            var sex = $("input[name='sex'][checked='checked']").val();
+
+            //创建元素
+            //用单引号不用转义
+            var html = '' +
+                '<tr>' +
+                '   <td><input type="checkbox" class="check" onclick="mathAge()"></td>' +
+                '   <td>' + name + '</td>' +
+                '   <td>' + age + '</td>' +
+                '   <td>' + sex + '</td>' +
+                '   <td>' +
+                '       <input type="button" value="删除" onclick="deleteOne(this)">' +
+                '       <input type="button" value="详情" onclick="detail(this)">' +
+                '   </td>' +
+                '</tr>';
+
+            //插入元素
+            $("#table").append(html);
+        }
+
+        //删除一行数据
+        function deleteOne(obj) {
+            //找到父级元素并删除
+            $(obj).parent().parent().remove();
+        }
+
+        //删除选中
+        function deleteSelect() {
+            var checkObj = $("#table tr td input[class='check']");
+            for (var i = 0; i < checkObj.length; i++) {
+                //判断是否选中
+                if ($(checkObj[i]).prop("checked")) {
+                    $(checkObj[i]).parent().parent().remove();
+                }
+            }
+        }
+
+        //详情
+        function detail(obj) {
+            //获取当前对象input的父元素td的父元素tr
+            var trs = $(obj).parent().parent();
+            //获取tr的所有的子元素td
+            var tds = trs.children();
+            $("#detailName").val($(tds[1]).text());
+            $("#detailAge").val($(tds[2]).text());
+            $("#detailSex").val($(tds[3]).text());
+        }
+
+        //计算平均年龄，最大年龄，最小年龄
+        function mathAge() {
+            //获取所有已选中复选框
+            var checkObj = $("#table tr td input[class='check']:checked");
+            if (checkObj == null) {
+                return;
+            }
+
+            //所有的年龄的集合，只能存放Number类型
+            var ageArr = new Array();
+
+            //获取复选框的父元素td的父元素tr
+            var trs = checkObj.parent().parent();
+            for (var i = 0; i < trs.length; i++) {
+                //获取td数组对象中下标是3的td中的年龄的值
+                var tdAgeObj = $(trs[i]).children()[2];
+                var tdAgeValue = $(tdAgeObj).text();
+                if (isNaN(tdAgeValue)) {
+                    //把非数字类型的age修改成0
+                    $(tdAgeObj).text(0);
+                    continue;
+                }
+                //解析成Number类型，放入数组中
+                ageArr[i] = parseInt(tdAgeValue);
+            }
+
+            var sumAge = 0;
+            var maxAge = ageArr[0];
+            var minAge = ageArr[0];
+            for (var i = 0; i < ageArr.length; i++) {
+                sumAge = sumAge + ageArr[i];
+                maxAge = ageArr[i] >= maxAge ? ageArr[i] : maxAge;
+                minAge = ageArr[i] <= minAge ? ageArr[i] : minAge;
+            }
+
+            $("#avgAge").val(sumAge / ageArr.length);
+            $("#maxAge").val(maxAge);
+            $("#minAge").val(minAge);
+        }
+
+    </script>
+</head>
+<body>
+
+<div style="text-align: left;width: 500px;margin:0 auto">
+
+    <input type="button" value="全选" id="selectAll">
+    <input type="button" value="全不选" id="noSelectAll">
+    <input type="button" value="反选" id="reverse"><br><br>
+    <input type="button" value="删除选中" onclick="deleteSelect()">
+    <br><br>
+
+    <table id="table" border="1" width="500" cellspacing="0">
+
+        <tr>
+            <td></td>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>性别</td>
+            <td>操作</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="check" onclick="mathAge()"></td>
+            <td>宋江</td>
+            <td>50</td>
+            <td>男</td>
+            <td>
+                <input type="button" value="删除" onclick="deleteOne(this)">
+                <input type="button" value="详情" onclick="detail(this)">
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="check" onclick="mathAge()"></td>
+            <td>卢俊义</td>
+            <td>55</td>
+            <td>男</td>
+            <td>
+                <input type="button" value="删除" onclick="deleteOne(this)">
+                <input type="button" value="详情" onclick="detail(this)">
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="check" onclick="mathAge()"></td>
+            <td>吴用</td>
+            <td>45</td>
+            <td>男</td>
+            <td>
+                <input type="button" value="删除" onclick="deleteOne(this)">
+                <input type="button" value="详情" onclick="detail(this)">
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="check" onclick="mathAge()"></td>
+            <td>公孙胜</td>
+            <td>50</td>
+            <td>男</td>
+            <td>
+                <input type="button" value="删除" onclick="deleteOne(this)">
+                <input type="button" value="详情" onclick="detail(this)">
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="check" onclick="mathAge()"></td>
+            <td>林冲</td>
+            <td>35</td>
+            <td>男</td>
+            <td>
+                <input type="button" value="删除" onclick="deleteOne(this)">
+                <input type="button" value="详情" onclick="detail(this)">
+            </td>
+        </tr>
+
+    </table>
+
+    平均年龄：<input type="text" id="avgAge" value="0" disabled="disabled"><br>
+    最大年龄：<input type="text" id="maxAge" value="0" disabled="disabled"><br>
+    最小年龄：<input type="text" id="minAge" value="0" disabled="disabled"><br>
+
+    <br><br>
+
+    保存： <br>
+    姓名：<input type="text" id="name"><br>
+    年龄：<input type="text" id="age"><br>
+    性别：<input type="radio" name="sex" value="男" checked="checked">男
+    <input type="radio" name="sex" value="女">女<br>
+    <input type="button" onclick="save()" value="保存数据到table中"><br><br>
+
+    详情：<br>
+    <input type="text" id="detailName" disabled="disabled"><br>
+    <input type="text" id="detailAge" disabled="disabled"><br>
+    <input type="text" id="detailSex" disabled="disabled"><br>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+</head>
+<body>
+
+<input type="button" value="全选" id="selectAll">
+<input type="button" value="全不选" id="noSelectAll">
+<input type="button" value="反选" id="reverse">
+<br><br>
+<input type="button" value="批量删除" onclick="deleteSelect()">
+<br><br>
+
+<table id="table" border="1px" width="60%" cellpadding="0" cellspacing="0">
+    <tr>
+        <td></td>
+        <td>姓名</td>
+        <td>年龄</td>
+        <td>性别</td>
+        <td>操作</td>
+    </tr>
+
+    <tr>
+        <td><input type="checkbox" class="check"></td>
+        <td>宋江</td>
+        <td>50</td>
+        <td>男</td>
+        <td>
+            <input type="button" onclick="deleteOne(this)" value="删除">
+            <input type="button" value="详情">
+        </td>
+    </tr>
+
+    <tr>
+        <td><input type="checkbox" class="check"></td>
+        <td>阎婆惜</td>
+        <td>20</td>
+        <td>女</td>
+        <td>
+            <input type="button" onclick="deleteOne(this)" value="删除">
+        </td>
+    </tr>
+
+    <tr>
+        <td><input type="checkbox" class="check"></td>
+        <td>潘金莲</td>
+        <td>20</td>
+        <td>女</td>
+        <td>
+            <input type="button" onclick="deleteOne(this)" value="删除">
+        </td>
+    </tr>
+
+    <tr>
+        <td><input type="checkbox" class="check"></td>
+        <td>大郎</td>
+        <td>50</td>
+        <td>男</td>
+        <td>
+            <input type="button" onclick="deleteOne(this)" value="删除">
+        </td>
+    </tr>
+
+    <tr>
+        <td><input type="checkbox" class="check"></td>
+        <td>武松</td>
+        <td>50</td>
+        <td>男</td>
+        <td>
+            <input type="button" onclick="deleteOne(this)" value="删除">
+        </td>
+    </tr>
+
+</table>
+<br>
+
+姓名：<input type="text" id="name"><br>
+年龄：<input type="text" id="age"><br>
+性别：<input type="radio" name="sex" value="男" checked="checked">男
+<input type="radio" name="sex" value="女">女<br>
+<input type="button" onclick="save()" value="保存数据到table中"><br><br>
+
+</body>
+</html>
+<script>
+    function save() {
+        var name = $("#name").val();
+        var age = $("#age").val();
+        var sex = $("input[type='radio'][name='sex']:checked").val();
+
+
+        var html = '<tr>' +
+            '        <td><input type="checkbox" class="check"></td>' +
+            '        <td>' + name + '</td>' +
+            '        <td>' + age + '</td>' +
+            '        <td>' + sex + '</td>' +
+            '        <td><input type="button" onclick="deleteOne(this)" value="删除"></td>' +
+            '    </tr>';
+        $("#table").append(html);
+    }
+
+    function deleteOne(obj) {
+        $(obj).parent().parent().remove();
+    }
+
+    function deleteSelect() {
+        var obj = $("input[type='checkbox'][class='check']:checked");
+
+        //验证是否有选中数据
+
+        for (var i = 0; i < obj.length; i++) {
+            $(obj[i]).parent().parent().remove();
+        }
+    }
+
+    $(function () {
+        $("#selectAll").click(function () {
+            var obj = $("input[type='checkbox'][class='check']");
+            obj.each(function (index, element) {
+                //element是js对象
+                $(element).prop("checked", true);
+            })
+        });
+
+        $("#reverse").click(function () {
+            var obj = $("input[type='checkbox'][class='check']");
+            obj.each(function (index, element) {
+                if ($(element).prop("checked")) {
+                    $(element).prop("checked", false);
+                } else {
+                    $(element).prop("checked", true);
+                }
+            })
+        });
+    });
+
+
+</script>

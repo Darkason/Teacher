@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <!--指令-->
+    <p v-if="b">显示了</p><br><br>
+
+    <a href="https://www.baidu.com">百度</a><br><br>
+    <a v-bind:href="url">{{aValue}}</a><br><br>
+
+    <input v-on:click="danji" type="button" value="按钮">
+    <input v-on:dblclick="shuangji" type="button" value="双击">
+    <input @mouseover="mouseover1" type="button" value="鼠标移入">
+
+    <br>
+
+    {{number}}+1<br>
+    {{number+1}}<br>
+    {{number>0}}<br>
+    {{number==1?"hello":"world"}}<br><br>
+
+    <ul>
+        <li v-for="(ele,index) in city">{{ele}} + {{index}}</li>
+    </ul>
+
+    <ol>
+        <li v-for="(value,key) in user">{{value}}+{{key}}</li>
+    </ol>
+
+</div>
+
+</body>
+</html>
+<script>
+    var vue = new Vue({
+        el: "#app",
+        data: {
+            // b: true
+            b: false,
+            aValue: "狗东",
+            url: "https://www.baidu.com",
+            number: 1,
+            city: ["广州", "上海", "北京"],
+            user: {
+                username: "马云",
+                age: 50
+            }
+        },
+        methods: {
+            danji: function () {
+                alert(123);
+            },
+            shuangji: function () {
+                alert("双击");
+            },
+            mouseover1: function () {
+                alert("鼠标移入");
+            }
+        }
+    });
+
+</script>

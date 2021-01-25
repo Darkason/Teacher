@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #id-div {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+        z-index: 2;
+    }
+
+    #id-div2 {
+        width: 150px;
+        height: 100px;
+        background-color: blue;
+        position: absolute;
+        top: 50px;
+        z-index: 1;
+    }
+
+    #id-div0 {
+        width: 600px;
+        height: 600px;
+        border: 1px solid red;
+        position: fixed;
+    }
+
+</style>
+<body>
+
+<div id="id-div0">
+    <div id="id-div">
+    </div>
+
+    <div id="id-div2">
+    </div>
+
+    <div id="id-div3">
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    window.onload = function (ev) {
+        // var arr1 = new Array();
+        // arr1[0] = "";
+        //
+        // var arr2 = new Array(5);
+        // var arr3 = new Array(1, 4, 3, 2, 5);
+        //
+        // //数组下标从0开始
+        // var arr4 = [2, 3, 5, 1];
+        // arr4[1] = "马云";
+        // arr4[4] = "马化腾";
+        //
+        // console.log(arr4[4]);
+
+        //数组只有length属性，没有length()方法
+        // for (var i = 0; i < arr4.length; i++) {
+        //     console.log(arr4[i]);
+        // }
+
+        // var arr5=["马什么梅",true,3.14159265358979,"abc"];
+
+        var arr1 = [2, -4, 6];
+        var arr2 = [2, 7, 8];
+        var arr3 = arr1.concat(arr2);
+
+        var arr4 = new Array();
+
+        // arr3.reverse();
+
+        for (var i = arr3.length - 1; i >= 0; i--) {
+            arr4[arr3.length - i - 1] = arr3[i];
+        }
+
+        // var str = arr4.join(",");
+        // console.log(str);
+
+        //取最大值
+        var temp = arr4[0];
+        // var arr4 =[-2,-4,-1];
+        // var temp = 0;
+        for (var i = 0; i < arr4.length; i++) {
+            temp = temp <= arr4[i] ? arr4[i] : temp;
+        }
+        // console.log(temp);
+
+        //默认是升序
+        // arr4.sort();
+
+        //降序
+        arr4.sort(function (a, b) {
+            return b - a;
+        });
+        // console.log(arr4);
+
+        var arr5 = [2, 10, 8, 4];
+        var temp = arr5[0];
+        for (var i = 0; i < arr5.length; i++) {
+            for (var j = 0; j < i; j++) {
+                if (arr5[i] < arr5[j]) {
+                    temp = arr5[i];
+                    arr5[i] = arr5[j];
+                    arr5[j] = temp;
+                }
+            }
+        }
+        console.log(arr5);
+
+    }
+
+</script>

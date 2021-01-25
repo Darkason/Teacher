@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="txt">
+<input type="button" id="btn" value="创建">
+<input type="button" id="btn2" value="删除">
+<br><br>
+
+<ul id="ul">
+    <li><a href="https://www.baidu.com">百度</a></li>
+    <li id="li2"><a href="https://www.baidu.com">狗东</a></li>
+</ul>
+
+</body>
+</html>
+<script>
+
+    window.onload = function (ev) {
+        // document.getElementById("btn").onclick = function (ev1) {
+        //     var value = document.getElementById("txt").value;
+        //     //创建li元素
+        //     var li = document.createElement("li");
+        //     li.innerHTML = '<a href="https://www.baidu.com">' + value + '</a>';
+        //     //li中放值
+        //     // li.innerText = value;
+        //     document.getElementById("ul").appendChild(li);
+        // }
+
+        document.getElementById("btn").onclick = function (ev1) {
+            var value = document.getElementById("txt").value;
+            //创建li元素
+            var li = document.createElement("li");
+            var a = document.createElement("a");
+            a.innerText = value;
+            a.href = "https://www.baidu.com";
+
+            li.appendChild(a);
+            document.getElementById("ul").appendChild(li);
+        }
+
+        document.getElementById("btn2").onclick = function (ev1) {
+            // document.getElementById("ul").remove();
+            document.getElementById("ul").removeChild(document.getElementById("li2"));
+        }
+
+    }
+
+</script>

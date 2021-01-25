@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    window.onload = function (ev) {
+        // var reg=new RegExp("^[0-9a-zA-Z_]{6,9}$");
+        // console.log(reg.test(123456));
+        // console.log(reg.test("123456a"));
+
+        //必须以数字开头，可以包含字母，总且长度是6-9位
+        //第一位数字，第5-8位数字或字母
+        // var reg=new RegExp("^[0-9]{1}[0-9a-zA-Z]{5,8}$");
+        // console.log(reg.test("12345a"));
+        // console.log(reg.test("12345678a"));
+        // console.log(reg.test("123456789a"));
+        // console.log(reg.test("a123456"));
+        // console.log(reg.test(".123456"));
+
+        // var reg=new RegExp("^[0-9]{2}");
+        // console.log(reg.test("123"));
+        // console.log(reg.test("123a"));
+        // console.log(reg.test("123xxxxxx"));
+        // console.log(reg.test("1xxxxxx"));
+        // console.log(reg.test("12"));
+
+        // var reg=new RegExp("[0-9]{2}$");
+        // console.log(reg.test("123"));
+        // console.log(reg.test("xxxx123"));
+        // console.log(reg.test("23"));
+        // console.log(reg.test("3"));
+        // console.log(reg.test("3a"));
+        // console.log(reg.test("1231232112"));
+
+        // 3位数字 或者 5位字母
+        // 123   abcde   123ab
+        // var reg = new RegExp("^([0-9]{3}|[a-zA-Z]{5})$");
+        // console.log(reg.test("123"));
+        // console.log(reg.test("abcde"));
+        // console.log(reg.test("1234567"));
+
+        //  xxxx@xxxx
+        // var reg = new RegExp("^[0-9]{1,}[@]{1}[0-9]{1,}$");
+        // console.log(reg.test("123@123"));
+        // console.log(reg.test("123@123"));
+        // console.log(reg.test("1@123"));
+        // console.log(reg.test("@123"));
+
+        //  xxxx@xx.com xxxx@xx.com
+        // var reg = new RegExp("^[0-9]{1,}[@]{1}[0-9]{1,}(.com)$");
+        // var reg = new RegExp("^\d{1}$");
+        // console.log(/^\d{1}$/.test("1"));
+        // console.log(/^\d+[@]{1}\d+(.com)$/.test("1@123.com"));
+
+    }
+
+</script>

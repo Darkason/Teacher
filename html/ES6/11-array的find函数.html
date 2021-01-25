@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        let students=[{"name":"张三","age":22},{"name":"键哥","age":23}];
+        /*let stu = students.find((item,index)=>{
+            return item.age==22;
+        });*/
+        let stu = students.find((item,index)=>item.age==23);
+        console.log(stu);
+
+        //查找成员的位置
+        let ary = [1, 5, 10, 15];
+        let index = ary.findIndex((value, index) => value == 15);
+        console.log(index);
+
+        //include函数
+        let arry5 = [1,2,3,4,5,10];
+        var ret = arry5.includes(110)
+        console.log(ret);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

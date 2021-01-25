@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    var text = "12a";
+
+    // ^表示开头
+    //  $表示结尾
+    //一般情况下，必须以^开头，以$结尾
+    // []表示取值范围 ，{}表示长度
+    //  ^[]{}$
+    var reg = new RegExp("^[0-9]{3}$");
+    var reg2 = new RegExp("^[0123456789]{3}$");
+    var reg3 = new RegExp("^[a-zA-Z]{3}$");
+
+    // console.log(reg.test(text));
+
+    // 6位数字
+    console.log(new RegExp("^[0-9]{6}$").test("123456"));
+    console.log(new RegExp("^[0-9]{6}$").test("1234567"));
+    console.log(new RegExp("^[0-9]{6}$").test("12345a"));
+    //只能是数字或字母,6位
+    console.log(new RegExp("^[0-9a-zA-Z]{6}$").test("12345a"));
+    console.log(new RegExp("^[0-9a-zA-Z]{6}$").test("12345ab"));
+    console.log(new RegExp("^[0-9a-zA-Z]{6}$").test("123..."));
+
+    //只能是数字或字母,6-8位
+    console.log(new RegExp("^[0-9a-zA-Z]{6,8}$").test("123456"));
+    console.log(new RegExp("^[0-9a-zA-Z]{6,8}$").test("12345678"));
+    console.log(new RegExp("^[0-9a-zA-Z]{6,8}$").test("123456aa"));
+    console.log(new RegExp("^[0-9a-zA-Z]{6,8}$").test("123456789"));
+
+    //只能是数字或字母,至少6位
+    console.log(new RegExp("^[0-9a-zA-Z]{6,}$").test("123456789"));
+    console.log(new RegExp("^[0-9a-zA-Z]{6,}$").test("12345"));
+    console.log(new RegExp("^[0-9a-zA-Z]{6,}$").test("12345aaaaaaaaaaaa"));
+
+    // {n} {n,} {n,m}
+
+    var reg2 = /^[]{}$/;
+
+    // 6位数字
+    console.log(/^[0-9]{6}$/.test("123456"));
+    console.log(/^\d{6}$/.test("123456"));
+
+    // 只能是xyx，且6位
+    console.log(/^[xyz]{6}$/.test("xxxyyy"));
+    console.log(/^[xyz]{6}$/.test("xxxyyb"));
+    console.log(/^.{3}$/.test("xxx"));
+    console.log(/^.{3}$/.test("a.$"));
+
+    // ? 0-1  * 任意次 + 至少一次
+    //数字，且最多1次
+    console.log(/^\d{0,1}$/.test("1"));
+    console.log(/^[0-9]{0,1}$/.test("12"));
+    console.log(/^[0-9]?$/.test("1"));
+    console.log(/^[0-9]?$/.test("12"));
+    console.log(/^[0-9]?$/.test(""));
+
+    console.log(/^[0-9]{0,}$/.test("123"));
+    console.log(/^[0-9]{0,}$/.test(""));
+    console.log(/^[0-9]*$/.test(""));
+    console.log(/^[0-9]*$/.test("21346789"));
+
+    console.log(/^[0-9]{1,}$/.test("21346789"));
+    console.log(/^[0-9]+$/.test("21346789"));
+    console.log(/^[0-9]+$/.test(""));
+
+
+</script>

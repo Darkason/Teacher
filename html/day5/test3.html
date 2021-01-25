@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    // var date = new Date();
+    // var obj = null;
+    // var obj2;
+    //
+    // console.log(typeof (1));
+    // console.log(typeof (true));
+    // console.log(typeof ("true"));
+    // console.log(typeof ('a'));
+    // console.log(typeof (date));
+    // console.log(typeof (obj));
+    // console.log(typeof (obj2));
+
+    //parseInt()从左往右解析，直到遇到非数字结束
+    // console.log(parseInt("3.14")); //遇到.结束
+    // console.log(parseInt("3.a14"));
+    // console.log(parseInt("3a.14")); //遇到a结束
+    // console.log(parseInt("a3.14")); //直接结束，返回NaN
+    // console.log(parseInt("03.14"));
+    // console.log(parseInt("0a3.14"));
+    // console.log(typeof (parseInt("a3.14")));
+    //
+    // //parseFloat()从左往右解析，第一个.号不结束，直到遇到非数字结束或者第二个.号结束
+    // console.log(parseFloat("3.14"));
+    // console.log(parseFloat("3.14a"));
+    // console.log(parseFloat("3.14a15"));
+    // console.log(parseFloat("3.14.15"));
+    // console.log(parseFloat("3a.14.15"));
+    // console.log(parseFloat("a3.14.15"));
+
+
+    var num1 = "3.14";
+    // var num2 = "3.14.15";
+    var num2 = "3.14";
+
+    //isNaN()不是数字返回true
+    console.log(isNaN(3.14)); //false
+    console.log(isNaN("3.14")); //false
+    console.log(isNaN("3.14.15")); //true
+    console.log(isNaN("3a.14")); //true
+    console.log(isNaN("abc")); //true
+
+    if (!isNaN(num1) && !isNaN(num2)) {
+        var result = parseFloat(num1) + parseFloat(num2);
+        console.log("和：" + result);
+    } else {
+        console.log("不是数字");
+    }
+
+</script>

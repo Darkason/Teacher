@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        //1、简单的方式创建对象
+        /*第1个问题：代码重复
+        第2个问题：类型不具体,都是Object类型*/
+        var person = new Object();
+        //可以任意增加属性和方法。
+        person.name="zhangsan";
+        person.gender="男";
+        person.age=22;
+        //可以任意增加方法
+        person.sayHello=function(){
+            document.write("你好世界!!!");
+            alert("你好，世界！！");
+
+        }
+        //person.sayHello();
+
+        //2、第二种
+        //json对象
+        var person={name:"tommy",
+            age:24,
+            gender:"男",
+            sayHi:function(){
+                alert("hello,"+this.name)
+            }};
+        //person.sayHi();
+
+        //3、工厂方式
+        function createPerson(name,gender,age){
+            var person = new Object();
+            person.name="zhangsan";
+            person.gender="男";
+            person.age=22;
+            //可以任意增加方法
+            person.sayHello=function(){
+                document.write("你好世界!!!");
+                alert("你好，世界！！"+"我是"+this.name);
+            }
+            return person ;
+        }
+
+        var p1 = createPerson("张三","男",23);
+        var p2 = createPerson("张三1","男",24);
+        var p3 = createPerson("张三2","男",25);
+        p3.sayHello();
+
+        //
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

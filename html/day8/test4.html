@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+<style>
+    .img1 {
+        width: 300px;
+        height: 200px;
+    }
+</style>
+<body>
+<div id="div1">
+    <img id="img1" class="img1" src="../img/1.jpg" alt="">
+    <input type="button" id="btn" value="启动">
+    <input type="button" id="btn2" value="暂停">
+</div>
+
+<div>
+    <img id="img2" class="img2" src="../img/1.jpg" alt="">
+</div>
+
+</body>
+</html>
+<script>
+
+    var imgArr = ["../img/1.jpg", "../img/2.jpg", "../img/3.jpg"];
+
+    var time = null;
+
+    $(function () {
+        $("#btn").click(function () {
+            time = window.setInterval("changeImg()", 500);
+        });
+
+        $("#btn2").click(function () {
+            window.clearInterval(time);
+
+            window.setTimeout("setMaxImg()", 2000);
+
+        });
+    });
+
+    var index = 0;
+
+    function changeImg() {
+        $("#img1").attr("src", imgArr[index]);
+        index++;
+        if (index >= 3) {
+            index = 0;
+        }
+    }
+
+    function setMaxImg() {
+        var imgSrc = $("#img1").attr("src");
+        $("#img2").attr("src", imgSrc);
+    }
+
+</script>

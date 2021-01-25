@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<input type="button" value="上一页" onclick="before()">
+<input type="button" value="下一页" onclick="after()">
+<input type="text" value="1" id="page">
+<table id="table" class="table table-bordered">
+    <tr>
+        <td>姓名</td>
+        <td>年龄</td>
+        <td>性别</td>
+    </tr>
+</table>
+</body>
+</html>
+<script type="text/javascript">
+    var page = 1;
+    var pageSize = 3;
+
+    function after() {
+        $("#table").empty();
+        $.ajax({
+            url: "../json/data.json",
+            data: "",
+            type: "get",
+            dataType: "json",
+            success: function (data) {
+                page = page + 1;
+
+                $("#page").val(page);
+
+                var html = "";
+
+                var startIndex = (page - 1) * pageSize;
+                var endIndex = pageSize * page - 1;
+
+                for (var i = startIndex; i <= endIndex; i++) {
+                    html += '<tr>' +
+                        '        <td>' + (data[i].name) + '</td>' +
+                        '        <td>年龄</td>' +
+                        '        <td>性别</td>' +
+                        '    </tr>';
+                }
+                $("#table").append(html);
+            },
+            error: function () {
+                alert("查询错误");
+            }
+        });
+    }
+
+    $.ajax({
+        url: "../json/data.json",
+        data: "",
+        type: "get",
+        dataType: "json",
+        success: function (data) {
+            var html = "";
+
+            var startIndex = 0;
+            var endIndex = pageSize * page - 1;
+
+            for (var i = startIndex; i <= endIndex; i++) {
+                html += '<tr>' +
+                    '        <td>' + (data[i].name) + '</td>' +
+                    '        <td>年龄</td>' +
+                    '        <td>性别</td>' +
+                    '    </tr>';
+            }
+
+            $("#table").append(html);
+        },
+        error: function () {
+            alert("查询错误");
+        }
+    });
+
+</script>

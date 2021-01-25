@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+</head>
+<script>
+
+    window.onload = function (ev) {
+        alert("1");
+    }
+
+    window.onload = function (ev) {
+        var jsObj = document.getElementById("div");
+        //js->jq
+        var jqObj = $(jsObj);
+        // alert(jqObj.text());
+    }
+
+    $(function () {
+        var jqDiv = $("div");
+
+        var jqObj = $("#div");
+        // alert(jqObj.length);
+        //jq->js
+        // var jsObj = jqObj[0];
+        // alert(jsObj.innerText);
+        // alert(obj.text());
+
+        alert(jqObj.get(0).innerText);
+    });
+
+    $(function () {
+    });
+
+</script>
+<body>
+<div id="div">
+    这是div
+</div>
+
+<div id="div2">
+    这是div2
+</div>
+</body>
+</html>

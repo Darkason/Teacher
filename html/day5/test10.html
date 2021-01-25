@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+姓名：<input type="text" id="name1"><br><br>
+姓名2：<input type="text" id="name2"><br><br>
+
+<input type="button" onclick="copy()" value="单击复制"><br><br>
+
+<!--<img src="../img/1.jpg" id="id-img"/><br><br>-->
+
+姓名：<input type="text" id="id-input" onblur="danji(this)"><br><br>
+姓名：<input type="text" id="id-input2" onblur="danji2('hello')"><br><br>
+姓名：<input type="text" id="id-input3" onblur="danji2(this.value)"><br><br>
+
+</body>
+</html>
+<script>
+
+    function danji(abc) {
+        // alert(document.getElementById("id-input").value);
+        alert(abc.value);
+    }
+
+    function danji2(value) {
+        alert(value);
+    }
+
+
+    function copy() {
+        var name1 = document.getElementById("name1").value;
+        document.getElementById("name2").value = name1;
+    }
+
+    window.onload = function (ev) {
+        document.getElementById("id-img").onmouseover = function (ev1) {
+            // document.getElementById("id-img").src="../img/2.jpg";
+            // this指的是当前对象，this是js对象
+            this.src = "../img/2.jpg";
+        }
+
+        document.getElementById("id-img").onmouseout = function (ev1) {
+            document.getElementById("id-img").src = "../img/3.jpg";
+        }
+
+    }
+
+</script>

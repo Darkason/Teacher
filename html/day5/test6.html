@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //步进表达式，增量表达式
+    // for (var i = 0; i <2 ; i++) {
+    //     alert(123);
+    // }
+
+    // var i = 0;
+    // var sum = 0;
+    // while (i <= 100) {
+    //     // sum=sum+i;
+    //     if (i % 2 == 0) {
+    //         sum += i;
+    //     }
+    //     i++;
+    // }
+    //
+    // while (i <= 100) {
+    //     sum += i;
+    //     i += 2;
+    // }
+
+    //死循环
+    // while (true) {
+    //     i++;
+    //     if (i > 100) {
+    //         break;
+    //     }
+    //     sum += i;
+    // }
+    // console.log(sum);
+
+
+    //无论如何都会执行代码块一次
+    // do {
+    //     sum += i;
+    //     i++;
+    // } while (i <= 100);
+    //
+    // do {
+    //     console.log(123);
+    // } while (false)
+
+    // 1 打印1-50，其中3的倍数不打印，例如 1 2 4 5 7......
+
+    // for (var j = 1; j <= 50; j++) {
+    //     if (j % 3 == 0) {
+    //         //跳过本次循环（continue后面的代码不会执行），继续下一次循环
+    //         // continue;
+    //         break;
+    //     }
+    //     console.log(j);
+    // }
+
+    for (var i = 1; i < 10; i++) {
+        for (var j = 1; j <= i; j++) {
+            // document.write(j + "X" + i + "=" + (j * i)+"&nbsp;");
+            document.write(j + "X" + i + "=" + (j * i)+" ");
+        }
+        document.write("<br/>");
+    }
+
+
+
+
+
+</script>
+

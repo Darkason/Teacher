@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<input type="text" id="text"/>
+<input type="button" id="btn" onclick="search()" value="百度一下"/>
+
+<ul id="ul">
+
+</ul>
+
+</body>
+</html>
+<script>
+    function zxc(data) {
+        var g = data.g || [];
+        var add_tag = '';
+        g.forEach(function (item) {
+            add_tag += `<li><a href="https://www.baidu.com/s?wd=${encodeURI(item.q)}">${item.q}</a></li><br/>`;
+        })
+        $("#ul").append(add_tag);
+    }
+
+    function search() {
+        var wd = $("#text").val();
+        $.ajax({
+            type: "get",
+            url: "https://www.baidu.com/sugrec?prod=pc&wd=" + wd + "&cb=zxc",
+            data: "",
+            dataType: "jsonp",
+            jsonpCallback: "jsonpProcess", // jsonpProcess自定义函数名
+            success: function (res) {
+                console.log(res);
+            }
+        });
+    }
+
+</script>

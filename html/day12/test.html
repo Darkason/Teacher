@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</head>
+<style>
+
+</style>
+<body>
+
+<br>
+姓名：<input type="text" value="" id="name">
+性别：<select id="sex">
+    <option value="-1">请选择</option>
+    <option value="1">男</option>
+    <option value="0">女</option>
+</select>
+
+<input type="button" value="查询" onclick="selectAll()"><br><br>
+
+<table id="table" class="table table-bordered">
+    <tr>
+        <td>姓名</td>
+        <td>年龄</td>
+        <td>性别</td>
+    </tr>
+</table>
+</body>
+</html>
+<script type="text/javascript">
+    function selectAll() {
+        $("#table").empty();
+
+        $.ajax({
+            url: "../json/data.json",
+            data: "",
+            type: "get",
+            dataType: "json",
+            success: function (data) {
+                var html = getHtml(data);
+                // var html = getHtml2(data);
+
+                $("#table").append(html);
+            },
+            error: function () {
+                alert("查询错误");
+            }
+        });
+    }
+
+    function getHtml2(data) {
+        var nameSel = $("#name").val();
+        var sexSel = $("#sex option:selected").val();
+
+        var newData = new Array();
+
+        $.each(data, function (index, element) {
+            //name为空（未输入条件）
+            if (nameSel == null && sexSel == "-1") {
+                newData.push(element);
+            } else if (nameSel == null && sexSel != "-1") {
+                if (element.sex == sexSel) {
+                    newData.push(element);
+                }
+            } else if (nameSel != null && sexSel == "-1") {
+                if (element.name == nameSel) {
+                    newData.push(element);
+                }
+            } else if (nameSel != null && sexSel != "-1") {
+                if (element.name == nameSel && element.sex == sexSel) {
+                    newData.push(element);
+                }
+            }
+        });
+        var html = '<tr>\n' +
+            '        <td>姓名</td>\n' +
+            '        <td>年龄</td>\n' +
+            '        <td>性别</td>\n' +
+            '    </tr>';
+
+        $.each(newData, function (index, element) {
+            var sexVal = element.sex == "1" ? "男" : "女";
+
+            var hobby = "1,2,3";
+            var arr = hobby.split(",");
+
+            html += '<tr>' +
+                '        <td>' + element.name + '</td>' +
+                '        <td>' + element.age + '</td>' +
+                '        <td>' + sexVal + '</td>' +
+                '    </tr>';
+        });
+        return html;
+    }
+
+    function getHtml(data) {
+        var nameSel = $("#name").val();
+        var sexSel = $("#sex option:selected").val();
+
+        var newData = new Array();
+
+        $.each(data, function (index, element) {
+            //name为空（未输入条件）
+            if (nameSel == null || nameSel == "" || nameSel == " ") {
+                //未选择性别
+                if (sexSel == "-1") {
+                    newData.push(element);
+                } else {
+                    if (element.sex == sexSel) {
+                        newData.push(element);
+                    }
+                }
+            } else {
+                //未选择性别
+                if (sexSel == "-1") {
+                    if (element.name == nameSel) {
+                        newData.push(element);
+                    }
+                } else {
+                    if (element.sex == sexSel && element.name == nameSel) {
+                        newData.push(element);
+                    }
+                }
+            }
+        });
+
+        //对newData排序
+
+        var html = '<tr>\n' +
+            '        <td>姓名</td>\n' +
+            '        <td>年龄</td>\n' +
+            '        <td>性别</td>\n' +
+            '    </tr>';
+
+        $.each(newData, function (index, element) {
+            var sexVal = element.sex == "1" ? "男" : "女";
+
+            var hobby = "1,2,3";
+            var arr = hobby.split(",");
+
+            html += '<tr>' +
+                '        <td>' + element.name + '</td>' +
+                '        <td>' + element.age + '</td>' +
+                '        <td>' + sexVal + '</td>' +
+                '    </tr>';
+        });
+        return html;
+    }
+
+</script>

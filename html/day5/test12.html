@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+姓名：<input type="text" value="" onkeydown="down1()" onkeypress=""><br><br>
+姓名：<input type="text" value="" onkeyup="up1()"><br><br>
+密码：<input type="text" value="" id="id-press"><br><br>
+</body>
+</html>
+<script>
+    function down1() {
+        alert("键盘按下");
+    }
+
+    function up1() {
+        alert("键盘弹起");
+    }
+
+    document.getElementById("id-press").onkeypress = function (ev) {
+        var keyCode = ev.keyCode;
+        if (keyCode == 13) {
+            window.location.href = "https://www.baidu.com";
+        } else {
+
+        }
+    }
+
+
+</script>

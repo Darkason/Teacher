@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+当前时间：
+<div id="div"></div>
+<br>
+<input type="button" id="start" value="开始" onclick="startTime()">
+<input type="button" id="end" value="暂停" onclick="endTime()">
+</body>
+</html>
+<script>
+
+    document.getElementById("end").disabled = true;
+
+    var time = null;
+
+    function startTime() {
+        document.getElementById("start").disabled = true;
+        document.getElementById("end").disabled = false;
+        time = window.setInterval(setTime, 1000);
+    }
+
+    function setTime() {
+        var date = new Date();
+        document.getElementById("div").innerText = date.toLocaleString();
+    }
+
+    function endTime() {
+        document.getElementById("start").disabled = false;
+        document.getElementById("end").disabled = true;
+        window.clearInterval(time);
+    }
+
+</script>
+
+<script>
+
+    // var count = 3;
+    //
+    // function change() {
+    //     count--;
+    //     if (count <= 0) {
+    //         location.href = "http://www.baidu.com";
+    //         return;
+    //     }
+    //     document.getElementById("div").innerText = count;
+    // }
+    //
+    // // window.setInterval("change()", 1000);
+    // window.setInterval(change, 1000);
+
+    // window.setInterval(function () {
+    //     count--;
+    //     if (count <= 0) {
+    //         location.href = "http://www.baidu.com";
+    //         return;
+    //     }
+    //     document.getElementById("div").innerText = count;
+    // }, 1000);
+
+    // function print(){
+    //     console.log("hello");
+    // }
+
+    // window.setTimeout("print()",2000);
+
+</script>

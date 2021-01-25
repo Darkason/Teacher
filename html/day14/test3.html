@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <table border="1px">
+        <tr>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>爱好</td>
+        </tr>
+
+        <tr v-for="user in userList">
+            <td v-for="(value,key) in user">{{value}}</td>
+        </tr>
+
+    </table>
+
+</div>
+
+</body>
+</html>
+<script>
+    var vue = new Vue({
+        el: "#app",
+        data: {
+            userList: [
+                {"name": "亚索", "age": "18", "hoby": ""},
+                {"name": "蛮王", "age": "50", "hoby": ""},
+                {"name": "盖伦", "age": "30", "hoby": ""},
+            ]
+        },
+        methods: {}
+    });
+
+</script>

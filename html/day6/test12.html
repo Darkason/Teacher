@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    span {
+        color: red;
+    }
+</style>
+<body>
+
+<form action="https://www.baidu.com" method="" onsubmit="return checkAll()">
+    姓名：<input type="text" value="" id="name">
+    <span id="span-name" style="display: none;">账号必须是6-12位的字母或数字</span>
+    <br><br>
+    密码：<input type="text" value="" id="password">
+    <span id="span-ps" style="display: none;">密码必须是6位数字</span>
+    <br><br>
+    <input type="submit" value="提交">
+</form>
+
+</body>
+</html>
+<script>
+    function checkAll() {
+        var b1 = checkName();
+        var b2 = checkPs();
+        if (b1 && b2) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function checkName() {
+        // var reg=new RegExp();
+        //6-12位，字母或数字
+        var reg = /^[a-zA-Z0-9]{6,12}$/;
+        if (!reg.test(document.getElementById("name").value)) {
+            document.getElementById("span-name").style.display = "block";
+            return false;
+        } else {
+            document.getElementById("span-name").style.display = "none";
+            return true;
+        }
+    }
+
+    function checkPs() {
+        var reg = /^[0-9]{6}$/;
+        if (!reg.test(document.getElementById("password").value)) {
+            document.getElementById("span-ps").style.display = "block";
+            return false;
+        } else {
+            document.getElementById("span-ps").style.display = "none";
+            return true;
+        }
+    }
+
+
+</script>

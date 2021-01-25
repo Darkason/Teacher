@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //1、let 避免了变量提升的问题
+        if(true){
+            let i =100;
+        }
+        //console.log(i);//? 100
+        //2暂时性死区
+        var check=1;
+        if(true){
+            console.log(check);//会报错，因为在这区域，定义了一个变量let check, 外部定义的变量就不起作用了。
+            temp = 234;
+            let check=2;
+            console.log(check);
+        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

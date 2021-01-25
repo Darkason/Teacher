@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+
+    /*//class以马开头的变红*/
+
+    /*div[class='马云'] {*/
+    /*color: red;*/
+    /*}*/
+
+    /*属性选择器*/
+    /*以马开头*/
+    div[class^='马'] {
+        color: red;
+    }
+
+    div[class$='马'] {
+        color: blue;
+    }
+
+    div[class*='马'] {
+        color: yellow;
+    }
+
+    p::first-letter {
+        color: pink;
+    }
+
+</style>
+<body>
+
+<div id="马云儿子">马云儿子</div>
+<div id="马云儿子2">马云儿子2</div>
+
+<div class="马云">马云</div>
+<div class="马化腾">马化腾</div>
+<div class="小马哥">小马哥</div>
+<div class="老马">老马</div>
+<div class="什么东梅">什么东梅</div>
+
+<a href="#" class="马云">a马云</a>
+
+<p>世界你好</p>
+
+</body>
+</html>

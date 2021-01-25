@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../jquery-validation-1.9.0/jquery.validate.js"></script>
+
+</head>
+<style>
+    .error {
+        color: red;
+    }
+
+</style>
+<body>
+<form id="form" action="https://www.baidu.com/" method="">
+    姓名： <input type="text" name="account" value=""><br><br>
+    密码： <input type="text" name="ps" value=""><br><br>
+    密码2： <input type="text" name="ps2" value="" placeholder="6-10位，数字或字母"><br><br>
+    年龄： <input type="text" name="age" value=""><br><br>
+    <input type="submit" value="提交">
+</form>
+
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+
+        $.validator.addMethod("checkPs2", function (value, element, params) {
+            // console.log(element.value);
+            console.log(params[0]);
+            console.log(params[1]);
+
+            var reg = /^[0-9A-Za-z]{6,10}$/;
+            return reg.test(value);
+        });
+        $("#form").validate({
+            rules: {
+                account: "required",
+                // ps: "required",
+                ps: {
+                    required: true,
+                    number: true,
+                    rangelength: [6, 6]
+                },
+                ps2: {
+                    checkPs2: ["hello", "world"]
+                },
+                age: {
+                    required: true,
+                    number: true,
+                    range: [0, 1000]
+                }
+            },
+            messages: {
+                account: {
+                    required: "姓名必填"
+                },
+                ps: {
+                    required: "密码必填",
+                    number: "数字",
+                    rangelength: "6位"
+                },
+                ps2: {
+                    checkPs2: "6-10位，数字或字母"
+                },
+                age: {
+                    required: "年龄必填",
+                    number: "请输入数字",
+                    range: "范围是0-1000"
+                }
+            }
+        });
+
+    });
+</script>

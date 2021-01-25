@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<input type="button" onclick="dianji()" value="单击">
+<input type="button" id="id-btn1" value="单击2"><br><br>
+<input type="button" ondblclick="shuangji()" value="双击">
+<input type="button" id="id-btn4" value="双击2"><br><br>
+</body>
+</html>
+<script>
+    //页面加载完毕以后才会加载js代码
+    window.onload = function (ev) {
+        alert(1);
+        document.getElementById("id-btn1").onclick = function () {
+            alert("按钮2单击了");
+        }
+        // event 事件
+        document.getElementById("id-btn4").ondblclick = function (ev) {
+            alert("按钮4双击了");
+        }
+    }
+
+    function dianji() {
+        alert("单击了");
+    }
+
+    function shuangji() {
+        alert("双击了");
+    }
+
+</script>

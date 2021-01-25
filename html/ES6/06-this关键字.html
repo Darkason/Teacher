@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+    //1、在全局环境中
+      console.log(this);//window
+    //2、如果是对象内部的函数。 this是对象本身
+    var user={"name":"张三","age":33,
+            "eat":function(){
+                console.log(this.name,this.age);
+                console.log(this);
+            }
+        }
+        user.eat();
+    //3、如果是事件函数，则是触发事件的对象。
+
+    //4、当执行call函数时,会改变执行的环境。this就是执行的环境。
+    var name="李四";
+    var age=33;
+    user.eat.call(window);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

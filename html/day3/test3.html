@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #div1{
+        height: 50px;
+    }
+
+    a{
+        height: 100px;
+    }
+
+</style>
+<body>
+
+<!--独自占据一行的是块元素-->
+<p>hello</p>
+<p>world</p>
+<p>世界你好</p>
+
+<!--块元素->行元素-->
+<div id="div1" style="display: inline-block">div123</div>
+<div id="div2" style="display: inline">div456</div>
+<br/>
+
+<!--不占据一行的是行元素-->
+<a href="#" style="display: block;">百度</a>
+<a href="#" style="display: inline-block;">京东</a>
+<a href="#" style="display: block;">淘宝</a>
+
+<!--不占据一行,能设置宽度-->
+<!--行内块元素-->
+<input type="text" style="width: 200px"/>
+<input type="text" />
+<input type="text" />
+
+<br>
+
+<!--<img src="../img/1.jpg" style="width: 100px;">-->
+<!--<img src="../img/1.jpg">-->
+
+</body>
+</html>

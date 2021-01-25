@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+
+    #id-p {
+        color: pink;
+    }
+
+    .class-p {
+        color: purple;
+    }
+
+    p {
+        color: blue !important;
+    }
+
+    p {
+        color: yellow;
+    }
+
+</style>
+
+<body>
+
+<!--优先级的顺序：!important >行内式> id >class>标签 > 属性选择器-->
+<p style="color:red;">hello</p>
+<p id="id-p" class="class-p">world</p>
+
+</body>
+</html>

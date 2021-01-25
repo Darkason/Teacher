@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    var age = 10;
+    var name = "马云";
+    var name = "王健林";
+    var name = '王健林';
+    sex = "男";
+
+    // console.log(age);
+    // console.log(name);
+    // console.log(sex);
+
+    var a = 1 / 2;
+
+    /*
+    console.log(5 % 3); // 5-(3*1)=2
+    console.log("5 % -3:" + 5 % -3);  // 5-(-1*-3)=2
+    console.log(-5 % 3); // -5-(-1*3)=-2
+    console.log(-5 % -3); // -5-(1*-3)=-2
+    //  -8 % 3
+    */
+
+    var a1 = 1;
+    var a2 = 1;
+
+    //先赋值后运算
+    var b = a1++;  // var b=a1+1;
+
+    //先运算后赋值(推荐语法)
+    var c = ++a2;  // var c=a2+1;
+
+    // console.log(b);
+    // console.log(c);
+
+    // var i = 1;
+    // console.log("i--:"+i--);
+    // console.log("i--:" + (--i));
+
+
+    var i = 3;
+    // i += 2;
+    //i = i + 2;
+
+    // i *=3;
+
+    // i = i % 2;
+    i %= 2;
+
+    // console.log(i);
+
+    // =是赋值操作
+    // ==是比较操作
+
+    var i = 2;
+
+    /*
+    console.log(1 == 2);
+    console.log(1 >= 2);
+    console.log(i === 2);
+    console.log(i === "2");
+    console.log(i == "2");
+    */
+
+    var x = 10;
+    var y = 5;
+    console.log(x == y);
+    console.log(!(x == y));
+    console.log(x < 10 && y > 3);
+    console.log(false && true);
+
+    console.log(x < 10 || y > 3);
+
+    // &和&&的区别？  |和||
+    // && 短路与  速度快
+    console.log(x < 10 && y > 3 && true);
+    console.log(x < 10 & y > 3);
+    console.log(x < 10 | y > 3);
+    console.log(x <= 10 || y > 3);
+
+    var x = 10;
+    var y = 5;
+    var temp;
+    // if(x>=y){
+    //     temp=x;
+    // }else{
+    //     temp=y;
+    // }
+
+    //三目表达式  三元表达式
+    temp = x >= y ? x : y;
+    console.log(temp);
+
+
+</script>

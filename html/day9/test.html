@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    $(function () {
+        //var obj={"":"","":"","":"" };
+
+        var person = {"name": "马云", "age": "50", "sex": "男"};
+        // console.log(person.name);
+        // console.log(person.age);
+
+        var persons = [
+            {"name": "马赛克", "age": "18"},
+            {"name": "马冬梅", "age": "18"},
+            {"name": "什么冬梅", "age": "30"}
+        ];
+
+        // $.each(persons, function (a, b) {
+        //     console.log(b.name + "," + b.age);
+        // });
+
+        // obj={"":[]};
+        var classss = {
+            "shoufu": [
+                {"name": "马云", "age": "50"},
+                {"name": "马化腾", "age": "45"}
+            ],
+            "shoufu2": [
+                {"name": "许家印", "age": "55"},
+                {"name": "", "age": ""}
+            ]
+        };
+
+        // $.each(classss.shoufu2, function (a, b) {
+        //     console.log(b.name + "," + b.age);
+        // });
+
+        var obj = {
+            "韦小宝": {"age": "30", "sex": "男"},
+            "韦大宝": {"age": "40", "sex": "男"}
+        };
+
+        console.log(obj.韦小宝.age);
+
+    });
+
+</script>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+
+</style>
+<body>
+
+<table id="table" border="1px" cellspacing="0" cellpadding="0" width="60%">
+    <tr>
+        <td>姓名</td>
+        <td>年龄</td>
+        <td>操作</td>
+    </tr>
+
+    <tr>
+        <td>马赛克</td>
+        <td>20</td>
+        <td><a href="" onclick="delete(this)">删除</a></td>
+    </tr>
+
+</table>
+<br><br>
+
+姓名：<input type="text" value="" id="name"><br><br>
+年龄：<input type="text" value="" id="age"><br><br>
+<input type="button" value="保存" onclick="save()">
+
+</body>
+</html>
+<script>
+    function save() {
+        var tableObj = document.getElementById("table");
+
+        var tr = document.createElement("tr");
+        var td1 = document.createElement("td");
+        var td2 = document.createElement("td");
+        var td3 = document.createElement("td");
+
+        td1.innerText="马什么梅";
+        td3.innerHTML='<a href="">删除</a>';
+
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+
+        tableObj.appendChild(tr);
+    }
+
+</script>

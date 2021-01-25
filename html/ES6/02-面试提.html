@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var arr = [];
+
+        for (var i = 0; i < 2; i++) {
+            arr[i] = function () {
+                console.log(i);
+            }
+        }
+
+        arr[0]();//结果是2。原因：因为变量提升的原因，i在循环结束后值是2.所以打印的是调用时候i的值.
+        arr[1]();//1,2
+
+        
+        for (let i = 0; i < 2; i++) {
+            arr[i] = function () {
+                console.log(i);
+            }
+        }
+        arr[0]();//0
+        arr[1]();//1
+        //1、i++，计算是等同于 let i = i+1
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

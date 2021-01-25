@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+姓名：<input type="text" id="id-input" value="" onblur="onblur1()">
+<span style="color:red;" id="span"></span>
+<br><br>
+
+选择城市：
+<select onchange="changeCity(this)">
+    <option value="广州">广州</option>
+    <option value="北京">北京</option>
+    <option value="上海">上海</option>
+</select>
+<br><br>
+
+姓名：<input type="text" id="" value="" onchange="changeInput()">
+</body>
+</html>
+<script>
+
+    function changeCity(obj) {
+        alert(obj.value);
+    }
+
+    function changeInput() {
+        alert("值发生了改变");
+    }
+
+    function onblur1() {
+        var value = document.getElementById("id-input").value;
+        if (value == "") {
+            //因为span没有value属性
+            document.getElementById("span").innerText = "姓名不能为空";
+        } else {
+            document.getElementById("span").innerText = "";
+        }
+    }
+
+</script>

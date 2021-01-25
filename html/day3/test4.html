@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    /*把hello变红*/
+
+    /*交集选择器*/
+    /*p.p1 {*/
+    /*color: red;*/
+    /*}*/
+
+    /*并集*/
+    /*p.p1, .p2 {*/
+    /*color: red;*/
+    /*}*/
+
+    /*p, div {*/
+    /*color: yellow;*/
+    /*}*/
+
+    /*后代 中间用空格*/
+    /*#div span {*/
+    /*color: red;*/
+    /*}*/
+
+    /*子元素选择器*/
+    /*#div > span {*/
+    /*color: red;*/
+    /*}*/
+
+    #div > a {
+        color: red;
+    }
+</style>
+<body>
+<p class="p1">hello</p>
+<p class="p2">world</p>
+<p>世界你好</p>
+<div class="p1">div</div>
+<a href="#">百度</a>
+
+<div id="div">
+    <span>这是div中的span</span>
+    <p>
+        <span>
+            这是p中的span
+            <a href="#">百度</a>
+        </span>
+    </p>
+    <a href="#">狗东</a>
+</div>
+
+
+</body>
+</html>

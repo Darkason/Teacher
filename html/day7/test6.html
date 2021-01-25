@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+</head>
+<body>
+<input type="text" value="hello" id="input"><br><br>
+
+同意：<input type="radio" id="check" name="yes"><br><br>
+
+<input type="button" id="b1" value="设置\获取input的value"><br><br>
+<input type="button" id="b2" value="选中\取消勾选"><br><br>
+</body>
+</html>
+<script>
+    $(function () {
+        $("#b1").click(function () {
+            // console.log($("#input").val());
+            // console.log($("#input").attr("value"));
+            // console.log($("#input").attr("type"));
+            // console.log($("#input").attr("id"));
+            // console.log($("#input").prop("value"));
+            // console.log($("#input").prop("type"));
+
+            // $("#input").attr("type","button");
+            // $("#input").attr("value","world");
+            $("#input").prop("type", "button");
+        });
+
+        $("#b2").click(function () {
+            // console.log($("#check").attr("checked"));
+            console.log($("#check").prop("checked"));
+
+            // if ($("#check").prop("checked")) {
+            //     $("#check").prop("checked", false);
+            //     // $("#check").prop("checked", null);
+            //     // $("#check").prop("checked", "");
+            // } else {
+            //     // $("#check").prop("checked", "checked");
+            //     $("#check").prop("checked", true);
+            // }
+
+            $("#check").trigger("click");
+            // $("#check").click();
+
+        });
+
+    });
+
+</script>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+<input type="button" id="btn" value="按钮1" onclick="dianji()"><br><br>
+<input type="button" id="btn2" value="按钮2"><br><br>
+<input type="button" id="btn3" value="按钮3"><br><br>
+<input type="button" id="btn4" value="按钮4"><br><br>
+<input type="button" id="btn5" value="解绑按钮4"><br><br>
+</body>
+</html>
+<script>
+    function dianji() {
+
+    }
+
+    $(function () {
+        $("#btn2").mouseover(function () {
+            alert(123);
+        });
+
+        $("#btn3").on("mouseover", function () {
+            alert(456);
+        });
+
+        // $("#btn4").on("mouseover", function () {
+        //     alert("hello");
+        // });
+        //
+        // $("#btn4").on("mouseout", function () {
+        //     alert("world");
+        // });
+
+        // $("#btn4").on({
+        //     "mouseover": function () {
+        //         $(this).css("color", "red");
+        //     }, "mouseout": function () {
+        //         $(this).css("color", "green");
+        //     }
+        // });
+
+        // $("#btn4").mouseover(function () {
+        //     $(this).css("color", "red");
+        // }).mouseout(function () {
+        //     $(this).css("color", "green");
+        // });
+
+        // $("#btn4").hover(function () {
+        //     $(this).css("color", "blue");
+        // });
+
+        $("#btn4").hover(function () {
+            $(this).css("color", "blue");
+        }, function () {
+            $(this).css("color", "orange");
+        });
+
+        $("#btn5").click(function () {
+            // $("#btn4").off("mouseover");
+            // $("#btn4").off("mouseout");
+            // $("#btn4").off();
+            $("#btn4").off("");
+        });
+
+    });
+</script>

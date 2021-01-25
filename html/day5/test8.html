@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="../img/1.jpg" id="id-img" width="300px" height="300px"/>
+
+</body>
+</html>
+<script>
+
+    var num = 1;
+
+    function print() {
+        var obj = document.getElementById("id-img");
+        num++;
+        obj.src = "../img/" + num + ".jpg";
+        if (num >= 3) {
+            num = 0;
+        }
+    }
+
+    // window.setInterval("print()", 2000);
+    window.setInterval(print, 1000);
+
+</script>
+

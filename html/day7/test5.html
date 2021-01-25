@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+</head>
+<style type="text/css">
+    .one {
+        width: 300px;
+        height: 300px;
+        background-color: orange;
+    }
+</style>
+<body>
+<input type="button" value="改变表单内可用<input>元素的值" id="b1"/><br><br>
+<input type="button" value="改变表单内不可用 <input>元素的值" id="b2"/><br><br>
+<input type="button" value="获取多选框选中值" id="b3"/><br><br>
+<input type="button" value="获取下拉框选中的内容" id="b4"/><br><br>
+
+<br><br>
+<input type="text" value="不可用值1" disabled="disabled">
+<input type="text" value="可用值1"><br><br>
+
+<select>
+    <option>高中</option>
+    <option selected="selected">本科</option>
+    <option>硕士</option>
+</select>
+<br>
+
+<input type="checkbox" value="lol" checked="checked">lol
+<input type="checkbox" value="java从入门到精通">java从入门到精通
+<input type="checkbox" value="mysql从删除到跑路">mysql从删除到跑路
+<br><br>
+
+<input type="text" value="<p>hello</p>" placeholder="请输入标签" id="txt">
+<input type="button" id="btnHTML" value="创建HTML">
+<input type="button" id="btnText" value="创建Text">
+<hr>
+
+<div id="myDiv">
+    div
+</div>
+
+<br>
+<br>
+
+<input type="button" id="btn1" value="添加class">
+<input type="button" id="btn2" value="移出class">
+<input type="button" id="btn3" value="切换class">
+
+</body>
+</html>
+<script>
+    $(function () {
+        $("#btn1").click(function () {
+            $("#myDiv").addClass("one");
+        });
+
+        $("#btn2").click(function () {
+            $("#myDiv").removeClass("one");
+        });
+
+        $("#btn3").click(function () {
+            $("#myDiv").toggleClass("one");
+        });
+
+
+        $("#btnText").click(function () {
+            $("#myDiv").text($("#txt").val());
+        });
+
+        $("#btnHTML").click(function () {
+            $("#myDiv").html($("#txt").val());
+        });
+
+        $("#b1").click(function () {
+            $("input:disabled").val("hello");
+            $("input:enabled").val("world");
+        });
+
+        $("#b4").click(function () {
+            alert($("select option:selected").text());
+        });
+
+        $("#b3").click(function () {
+            var obj = $("input[type='checkbox']:checked");
+            for (var i = 0; i < obj.length; i++) {
+                // console.log(obj[i].value);
+                console.log($(obj[i]).val());
+            }
+        });
+    });
+</script>

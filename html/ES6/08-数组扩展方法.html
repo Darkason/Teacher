@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+    //扩展运算符：扩展运算符可以将数组或者对象转为用逗号分隔的参数序列
+        var arry=[22,33,44,55];
+        console.log(arry);
+        console.log(...arry);
+
+        function add(...args){
+            var sum = 0;
+            for(var i = 0;i<args.length;i++){
+                sum = sum+args[i];
+            }
+            return sum;
+        }
+
+        //通过扩展方法，将数组转换成参数序列[22,33,44,55]; ---> (22,33,44,55)
+        var total = add(...arry);
+        console.log(total);
+
+       var total2 = add(arry);
+        console.log(total2);
+
+        //将多个数组合并成一个
+        let ary1 = [1, 2, 3];
+        let ary2 = [3, 4, 5];
+        let ary3 = [...ary1, ...ary2];
+        console.log(ary3);
+
+        ary1.push(...ary2);
+        console.log(ary1);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

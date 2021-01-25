@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+</head>
+<body>
+<ul id="citys">
+    <li>广州</li>
+    <li>东京</li>
+    <li>上海</li>
+    <li>北京</li>
+</ul>
+
+</body>
+</html>
+<script>
+    $(function () {
+        var ul = $("#citys li");
+        // for (var i = 0; i < ul.length; i++) {
+        //     // console.log(ul[i].innerText);
+        //     console.log($(ul[i]).text());
+        // }
+
+        // ul.each(function (index, element) {
+        //     console.log(index+","+element.innerText);
+        // });
+
+        // $.each(ul, function (a, b) {
+        //     console.log(b.innerText);
+        // });
+
+        for (var li of ul) {
+            console.log(li.innerText);
+        }
+
+    });
+
+</script>

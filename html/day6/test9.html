@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="(通过标签名)给a链接添加地址" id="b2"/>
+<input type="button" value="(通过name属性)给div设值" id="b3"/>
+<input type="button" value="(通过类名)给div设值" id="b4"/>
+
+<br><br>
+<a href="#">京东</a><br/>
+<a>京东</a><br/>
+<a>京东</a><br/><br/>
+
+<a class="baidu">百度</a><br/>
+<a class="baidu">百度</a><br/>
+<a class="baidu">百度</a><br/><br/>
+
+<a name="alibaba">阿里巴巴</a><br/>
+<a name="alibaba">阿里巴巴</a><br/>
+<a name="alibaba">阿里巴巴</a><br/>
+<a name="">阿里巴巴</a><br/>
+
+
+</body>
+</html>
+<script>
+    document.getElementById("b2").onclick = function (ev) {
+        var obj = document.getElementsByTagName("a");
+        for (var i = 0; i < obj.length; i++) {
+            obj[i].href = "https://www.baidu.com";
+        }
+    }
+
+    document.getElementById("b4").onclick = function (ev) {
+        var obj = document.getElementsByClassName("baidu");
+        for (var i = 0; i < obj.length; i++) {
+            obj[i].href = "https://www.baidu.com";
+        }
+    }
+
+    document.getElementById("b3").onclick = function (ev) {
+        var obj = document.getElementsByName("alibaba");
+        for (var i = 0; i < obj.length; i++) {
+            obj[i].href = "https://www.baidu.com";
+        }
+    }
+
+</script>

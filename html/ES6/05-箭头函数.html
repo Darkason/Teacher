@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*const fun1=(num1,num2)=>{
+            return num1+num2;
+        }*/
+        //简化1:如果只有一行代码，可以省略{}和return
+        const fun1=(num1,num2)=>num1+num2;
+        console.log(fun1(12,13));
+
+        //简化2：如果只有一个参数，可以i省略参数的括弧
+        let stu1 = {"name":"建哥","age":23}
+        const fun2=stu=> stu.age==22?"结婚":"继续做单身狗";
+        console.log(fun2(stu1));
+
+        //箭头函数不绑定this关键字，箭头函数中的this，指向的是函数定义位置的上下文this
+        const obj = { name: '张三'}
+        function fn () {
+            console.log(this);//this 指向 是obj对象
+            return () => {
+                console.log(this);//this 指向 的是箭头函数定义的位置，那么这个箭头函数定义在fn里面，而这个fn指向是的obj对象，所以这个this也指向是obj对象
+            }
+        }
+        const resFn = fn.call(obj);
+        resFn();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

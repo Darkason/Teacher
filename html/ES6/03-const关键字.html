@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //使用const定义常量，常量的值是不能修改的
+        const PI=3.14159;
+        //PI=3.14;//出错
+
+        //数组常量 ---- 复杂类型对象，不能修改地址
+        const user=["zahngsan","lisi"];
+        user[0] = "张三";//修改对象中的某个值
+        //user =["张三","李四"];//相当于创建新的对象
+
+        const studuent1 = {"name":"违建","age":22};
+        studuent1.name="张伟建";
+        //studuent1={};
+
+        if(true){
+            const country="中国";
+        }
+        //console.log(country);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

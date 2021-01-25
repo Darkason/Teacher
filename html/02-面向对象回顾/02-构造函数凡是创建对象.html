@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //使用构造函数方式创建对象
+        function Person(name,gender,age){
+            this.name=name;
+            this.gender=gender;
+            this.age=age;
+            this.sayHello=function(){
+                document.write("你好世界！！，我是"+this.name);
+            };
+            this.playBall=function(){
+                document.write("兄弟们，赶紧上线！！"+this.name);
+            }
+        }
+
+        var p1 = new Person("黄先生","男性",31);
+        var p2 = new Person("黄先生22","男性",31);
+        var p3 = new Person("黄先生33","男性",31);
+        p3.playBall();
+
+        alert(p1 instanceof Person);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

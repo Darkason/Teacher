@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<input type="button" id="btn" value="查询"><br><br>
+
+<table id="table" border="1px">
+    <tr>
+        <td>姓名</td>
+        <td>年龄</td>
+    </tr>
+
+</table>
+
+</body>
+</html>
+<script>
+    $(function () {
+
+        $("#btn").click(function () {
+
+            $.ajax({
+                url: "../json/data.json",
+                data: "",
+                type: "get",
+                dataType: "json",
+                async: "false",
+                success: function (data) {
+                    var html = '';
+                    for (var i = 0; i < data.length; i++) {
+                        html += '<tr>' +
+                            '        <td>' + data[i].name + '</td>' +
+                            '        <td>' + data[i].age + '</td>' +
+                            '    </tr>';
+                    }
+                    $("#table").append(html);
+
+                },
+                error: function () {
+                    alert("请求失败");
+                }
+
+            });
+
+        });
+    });
+
+</script>

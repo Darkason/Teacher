@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+</head>
+<body>
+<ul id="city">
+    <li id="bj" name="beijing">北京</li>
+    <li id="tj" name="tianjin">天津</li>
+    <li id="cq" name="chongqing">重庆</li>
+</ul>
+
+<input type="button" value="按钮" onclick="add()">
+
+</body>
+</html>
+<script>
+    $(function () {
+
+    });
+
+    function add() {
+        var li = $('<li>广州</li>');
+        // $("#city").append(li);
+        // $("#city").prepend(li);
+        // $("#tj").before(li);
+        // $("#tj").after(li);
+
+        // $("#city").remove();
+        $("#city").empty();
+
+    }
+
+</script>

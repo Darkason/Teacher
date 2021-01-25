@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+请选择省：
+<select id="province" onchange="changeProvince()"></select><br><br>
+请选择市:
+<select id="city"></select><br><br>
+请选择区\县：
+<select id="area"></select><br><br>
+</body>
+</html>
+<script>
+    $(function () {
+        $.ajax({
+            url: "../json/data.json",
+            type: "get",
+            data: "",
+            dataType: "json",
+            success: function (data) {
+                var html = '<option value="-1">--请选择--</option>';
+                $.each(data, function (index, element) {
+                    if (element.type == '1') {
+                        html += '<option value="' + element.id + '">' + element.name + '</option>';
+                    }
+                })
+                $("#province").append(html);
+            },
+            error: function () {
+                alert("获取省失败！");
+            }
+
+        });
+
+    });
+
+    //选择省，填充市数据
+    function changeProvince() {
+        $("#city").empty();
+        //获取option的value
+        var id = $("#province option:selected").val();
+        if (id != '-1') {
+            $.ajax({
+                url: "../json/data.json",
+                type: "get",
+                data: "",
+                dataType: "json",
+                success: function (data) {
+                    var html = '<option value="-1">--请选择--</option>';
+                    $.each(data, function (index, element) {
+                        if (id == element.p_id) {
+                            html += '<option value="' + element.id + '">' + element.name + '</option>';
+                        }
+                    })
+                    $("#city").append(html);
+                },
+                error: function () {
+                    alert("获取市失败！");
+                }
+            });
+        }
+    }
+</script>

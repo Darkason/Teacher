@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<input type="button" id="btn" value="按钮"><br><br>
+<input type="text" id="name"><br><br>
+<input type="text" id="age"><br><br>
+</body>
+</html>
+<script>
+    $(function () {
+
+        $("#btn").click(function () {
+            // $.ajax({
+            //     url: "../json/data.json",
+            //     //get post 默认是get
+            //     type: "get",
+            //     data: "",
+            //     // text json _default
+            //     dataType: "json",
+            //     success: function (data) {
+            //         //data是json对象
+            //         $("#name").val(data.name);
+            //         $("#age").val(data.age);
+            //     },
+            //     error: function () {
+            //         alert("ajax请求失败！");
+            //     }
+            //
+            // });
+
+            // $.get({
+            //     url: "",
+            //     data: "",
+            //     dataType: "",
+            //     success: function (abc) {
+            //
+            //     },
+            //     error: function () {
+            //
+            //     }
+            // });
+            //
+            // $.post({
+            //     url: "",
+            //     data: "",
+            //     dataType: "",
+            //     success: function (abc) {
+            //
+            //     },
+            //     error: function () {
+            //
+            //     }
+            // });
+
+            $.ajax({
+                url: "../json/data.json",
+                type: "get",
+                data: "",
+                dataType: "json"
+            }).done(function (data) {
+                alert(data);
+            }).fail(function () {
+                alert("请求失败");
+            });
+
+        });
+    });
+
+</script>

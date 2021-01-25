@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+</head>
+<body>
+<input type="button" value="按钮" id="b1"/>
+
+<div>我是div</div>
+<div id="div1" class="马云">我是div1 马云</div>
+<div class="马什么梅">马什么梅</div>
+<div id="div2" class="马化腾">我是div2 马化腾</div>
+<div id="div3" class="小马哥">我是div3 小马哥</div>
+<div id="div4" class="老马">我是div4 老马</div>
+<div id="div5" class="div5">我是div5</div>
+<div id="div6" class="div5">我是div6</div>
+
+
+</body>
+</html>
+<script>
+    $(function () {
+        $("#b1").click(function () {
+            //div,包含属性class
+            //$("div[class]").css("background-color", "red");
+
+            //div,包含属性class,且class='马云'
+            //$("div[class='马云']").css("background-color", "red");
+
+            // $("div[class^='马']").css("background-color", "red");
+            //$("div[class$='马']").css("background-color", "red");
+            //$("div[class*='马']").css("background-color", "red");
+
+            // id="div5" class="div5"
+            //$("div[id='div5'][class='div5']").css("background-color", "red");
+            // $("div[id][class='div5']").css("background-color", "red");
+
+
+            //$("div:first").css("background-color", "red");
+            //$("div:last").css("background-color", "red");
+
+            //$("div:eq(2)").css("background-color", "red");
+
+            //$("div[class]:eq(2)").css("background-color", "red");
+
+            //$("div:even").css("background-color", "red");
+
+            $("div:not('.div5')").css("background-color", "red");
+
+        });
+
+    });
+
+</script>
